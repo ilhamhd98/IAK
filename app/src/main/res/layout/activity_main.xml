@@ -23,6 +23,14 @@
         android:textSize="16sp"
         tools:text="Password"/>
 
+    <ProgressBar
+        android:id="@+id/pb_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:visibility="gone"/>
+
     <ImageView
         android:id="@+id/iv_picture"
         android:layout_width="match_parent"
