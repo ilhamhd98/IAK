@@ -1,5 +1,6 @@
 package com.powergeninfotech.iak_beginner;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,13 +57,25 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
             tv_title = itemView.findViewById(R.id.tv_title);
         }
 
-        public void bind(NewsPojo newsPojo) {
+        public void bind(final NewsPojo newsPojo) {
 
             tv_title.setText(newsPojo.getTitle());
 
             Picasso.with(itemView.getContext())
                     .load(newsPojo.getLink_gambar())
                     .into(iv_image);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent intent = new Intent(itemView.getContext(), DetailActivity.class);
+                    intent.putExtra(DetailActivity.INTENT_DETAIL, newsPojo.getDetail());
+
+                    itemView.getContext().startActivity(intent);
+
+                }
+            });
         }
     }
 }
